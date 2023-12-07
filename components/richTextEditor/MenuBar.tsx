@@ -1,4 +1,29 @@
 import { Editor } from '@tiptap/react'
+import {
+    RiBold,
+    RiItalic,
+    RiStrikethrough,
+    RiCodeSSlashLine,
+    RiFormatClear, 
+    RiEmotionLine,
+    RiH1,
+    RiH2,
+    RiH3,
+    RiH4,
+    RiH5,
+    RiH6,
+    RiParagraph,
+    RiListOrdered,
+    RiListUnordered,
+    RiCodeBoxLine,
+    RiLink,
+    RiLinkUnlink,
+    RiDoubleQuotesL,
+    RiSeparator,
+    RiTextWrap,
+    RiArrowGoBackLine,
+    RiArrowGoForwardLine,
+} from 'react-icons/ri'
 
 type ManuBarProps = {
     editor: Editor | null
@@ -10,8 +35,9 @@ const MenuBar = ({ editor }: ManuBarProps) => {
     }
 
 return (
-    <div className="editor-control-wrapper">
+    <div className="editor-control-wrapper ">
     <button
+        title="Bold"
         onClick={() => editor.chain().focus().toggleBold().run()}
         disabled={
         !editor.can()
@@ -20,11 +46,12 @@ return (
             .toggleBold()
             .run()
         }
-        className={editor.isActive('bold') ? 'is-active' : ''}
+        className={`${editor.isActive('bold') ? 'is-active' : ''} menu-button mx-1`}
     >
-        boldttttt
+        <RiBold />
     </button>
     <button
+        title="Italic"
         onClick={() => editor.chain().focus().toggleItalic().run()}
         disabled={
         !editor.can()
@@ -33,11 +60,12 @@ return (
             .toggleItalic()
             .run()
         }
-        className={editor.isActive('italic') ? 'is-active' : ''}
+        className={`${editor.isActive('italic') ? 'is-active' : ''} menu-button mx-1`}
     >
-        italic
+        <RiItalic />
     </button>
     <button
+        title="Strikethrough"
         onClick={() => editor.chain().focus().toggleStrike().run()}
         disabled={
         !editor.can()
@@ -46,102 +74,107 @@ return (
             .toggleStrike()
             .run()
         }
-        className={editor.isActive('strike') ? 'is-active' : ''}
+        className={`${editor.isActive('strike') ? 'is-active' : ''} menu-button mx-1`}
     >
-        strike
+        <RiStrikethrough />
+    </button>
+    <button 
+        title="Clear format"
+        onClick={() => editor.chain().focus().unsetAllMarks().run()}
+        className="menu-button mx-1">
+        <RiFormatClear />
     </button>
     <button
-        onClick={() => editor.chain().focus().toggleCode().run()}
-        disabled={
-        !editor.can()
-            .chain()
-            .focus()
-            .toggleCode()
-            .run()
-        }
-        className={editor.isActive('code') ? 'is-active' : ''}
-    >
-        code
-    </button>
-    <button onClick={() => editor.chain().focus().unsetAllMarks().run()}>
-        clear marks
-    </button>
-    <button onClick={() => editor.chain().focus().clearNodes().run()}>
-        clear nodes
-    </button>
-    <button
+        title="Paragraph"
         onClick={() => editor.chain().focus().setParagraph().run()}
-        className={editor.isActive('paragraph') ? 'is-active' : ''}
+        className={`${editor.isActive('paragraph') ? 'is-active' : ''} menu-button mx-1`}
     >
-        paragraph
+        <RiParagraph />
     </button>
     <button
+        title="H1"
         onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
-        className={editor.isActive('heading', { level: 1 }) ? 'is-active' : ''}
+        className={`${editor.isActive('heading', { level: 1 }) ? 'is-active' : ''} menu-button mx-1`}
     >
-        h1
+        <RiH1 />
     </button>
     <button
+        title="H2"
         onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
-        className={editor.isActive('heading', { level: 2 }) ? 'is-active' : ''}
+        className={`${editor.isActive('heading', { level: 2 }) ? 'is-active' : ''} menu-button mx-1`}
     >
-        h2
+        <RiH2 />
     </button>
     <button
+        title="H3"
         onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
-        className={editor.isActive('heading', { level: 3 }) ? 'is-active' : ''}
+        className={`${editor.isActive('heading', { level: 3 }) ? 'is-active' : ''} menu-button mx-1`}
     >
-        h3
+        <RiH3 />
     </button>
     <button
+        title="H4"
         onClick={() => editor.chain().focus().toggleHeading({ level: 4 }).run()}
-        className={editor.isActive('heading', { level: 4 }) ? 'is-active' : ''}
+        className={`${editor.isActive('heading', { level: 4 }) ? 'is-active' : ''} menu-button mx-1`}
     >
-        h4
+        <RiH4 />
     </button>
     <button
+        title="H5"
         onClick={() => editor.chain().focus().toggleHeading({ level: 5 }).run()}
-        className={editor.isActive('heading', { level: 5 }) ? 'is-active' : ''}
+        className={`${editor.isActive('heading', { level: 5 }) ? 'is-active' : ''} menu-button mx-1`}
     >
-        h5
+        <RiH5 />
     </button>
     <button
+        title="H6"
         onClick={() => editor.chain().focus().toggleHeading({ level: 6 }).run()}
-        className={editor.isActive('heading', { level: 6 }) ? 'is-active' : ''}
+        className={`${editor.isActive('heading', { level: 6 }) ? 'is-active' : ''} menu-button mx-1`}
     >
-        h6
+        <RiH6 />
     </button>
     <button
-        onClick={() => editor.chain().focus().toggleBulletList().run()}
-        className={editor.isActive('bulletList') ? 'is-active' : ''}
-    >
-        bullet list
-    </button>
-    <button
-        onClick={() => editor.chain().focus().toggleOrderedList().run()}
-        className={editor.isActive('orderedList') ? 'is-active' : ''}
-    >
-        ordered list
-    </button>
-    <button
-        onClick={() => editor.chain().focus().toggleCodeBlock().run()}
-        className={editor.isActive('codeBlock') ? 'is-active' : ''}
-    >
-        code block
-    </button>
-    <button
+        title="Block quote"
         onClick={() => editor.chain().focus().toggleBlockquote().run()}
-        className={editor.isActive('blockquote') ? 'is-active' : ''}
+        className={`${editor.isActive('blockquote') ? 'is-active' : ''} menu-button mx-1`}
     >
-        blockquote
-    </button>
-    <button onClick={() => editor.chain().focus().setHorizontalRule().run()}>
-        horizontal rule
-    </button>
-    <button onClick={() => editor.chain().focus().setHardBreak().run()}>
-        hard break
+        <RiDoubleQuotesL />
     </button>
     <button
+        title="Bullet List"
+        onClick={() => editor.chain().focus().toggleBulletList().run()}
+        className={`${editor.isActive('bulletList') ? 'is-active' : ''} menu-button mx-1`}
+    >
+        <RiListUnordered />
+    </button>
+    <button
+        title="Ordered List"
+        onClick={() => editor.chain().focus().toggleOrderedList().run()}
+        className={`${editor.isActive('orderedList') ? 'is-active' : ''} menu-button mx-1`}
+    >
+        <RiListOrdered />
+    </button>
+    <button
+        title="Code block"
+        onClick={() => editor.chain().focus().toggleCodeBlock().run()}
+        className={`${editor.isActive('codeBlock') ? 'is-active' : ''} menu-button mx-1`}
+    >
+        <RiCodeBoxLine />
+    </button>
+    <button 
+        title="Horizontal Separator"
+        onClick={() => editor.chain().focus().setHorizontalRule().run()}
+        className="menu-button mx-1">
+        <RiSeparator />
+    </button>
+    <button 
+        title="Line break"
+        onClick={() => editor.chain().focus().setHardBreak().run()}
+        className="menu-button mx-1">
+        <RiTextWrap />
+    </button>
+    <button
+        title="Undo"
         onClick={() => editor.chain().focus().undo().run()}
         disabled={
         !editor.can()
@@ -150,10 +183,12 @@ return (
             .undo()
             .run()
         }
+        className="menu-button mx-1"
     >
-        undo
+        <RiArrowGoBackLine />
     </button>
     <button
+        title="Redo"
         onClick={() => editor.chain().focus().redo().run()}
         disabled={
         !editor.can()
@@ -162,8 +197,9 @@ return (
             .redo()
             .run()
         }
+        className="menu-button mx-1"
     >
-        redo
+        <RiArrowGoForwardLine />
     </button>
     </div>
 )
