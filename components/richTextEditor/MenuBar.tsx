@@ -3,7 +3,7 @@ import {
     RiBold,
     RiItalic,
     RiStrikethrough,
-    RiCodeSSlashLine,
+    RiMarkPenFill,
     RiFormatClear, 
     RiEmotionLine,
     RiH1,
@@ -77,6 +77,13 @@ return (
         className={`${editor.isActive('strike') ? 'is-active' : ''} menu-button mx-1`}
     >
         <RiStrikethrough />
+    </button>
+    <button
+        title="Highlight"
+        onClick={() => editor.chain().focus().toggleHighlight().run()}
+        className={editor.isActive('highlight') ? 'is-active' : ''}
+        >
+        <RiMarkPenFill />
     </button>
     <button 
         title="Clear format"
@@ -172,6 +179,26 @@ return (
         onClick={() => editor.chain().focus().setHardBreak().run()}
         className="menu-button mx-1">
         <RiTextWrap />
+    </button>
+    <button 
+        title="Link"
+        onClick={() => {
+            // Get selected text, then make a Link
+            const { view, state } = editor
+            const { from, to } = view.state.selection
+            const text = state.doc.textBetween(from, to, '')
+
+            editor.commands.setLink({ href: text, target: '_blank' }) 
+        }}
+        className={editor.isActive('link') ? 'is-active' : ''}>
+        <RiLink />
+    </button>
+    <button
+        title="Unlink"
+        onClick={() => editor.chain().focus().unsetLink().run()}
+        disabled={!editor.isActive('link')}
+    >
+        <RiLinkUnlink />
     </button>
     <button
         title="Undo"

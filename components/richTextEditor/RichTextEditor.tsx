@@ -1,10 +1,12 @@
 'use client'
 import './richTextEditor.scss'
 
+import { Editor, EditorProvider, useCurrentEditor, useEditor, EditorContent } from '@tiptap/react'
 import ListItem from '@tiptap/extension-list-item'
 import TextStyle from '@tiptap/extension-text-style'
 import FontFamily from '@tiptap/extension-font-family'
-import { Editor, EditorProvider, useCurrentEditor, useEditor, EditorContent } from '@tiptap/react'
+import Highlight from '@tiptap/extension-highlight'
+import Link from '@tiptap/extension-link'
 import StarterKit from '@tiptap/starter-kit'
 import React from 'react'
 import MenuBar from './MenuBar'
@@ -27,7 +29,9 @@ const extensions = [
   StarterKit,
   ListItem,
   TextStyle,
-  FontFamily
+  FontFamily,
+  Highlight,
+  Link
 ]
 
 const content = `
