@@ -6,6 +6,7 @@ import ListItem from '@tiptap/extension-list-item'
 import TextStyle from '@tiptap/extension-text-style'
 import FontFamily from '@tiptap/extension-font-family'
 import Highlight from '@tiptap/extension-highlight'
+import TextAlign from '@tiptap/extension-text-align'
 import Link from '@tiptap/extension-link'
 import StarterKit from '@tiptap/starter-kit'
 import React from 'react'
@@ -31,7 +32,10 @@ const extensions = [
   TextStyle,
   FontFamily,
   Highlight,
-  Link
+  Link,
+  TextAlign.configure({
+    types: ['heading', 'paragraph'],
+  })
 ]
 
 const content = `

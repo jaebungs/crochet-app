@@ -21,6 +21,10 @@ import {
     RiDoubleQuotesL,
     RiSeparator,
     RiTextWrap,
+    RiAlignLeft,
+    RiAlignCenter,
+    RiAlignJustify,
+    RiAlignRight,
     RiArrowGoBackLine,
     RiArrowGoForwardLine,
 } from 'react-icons/ri'
@@ -190,16 +194,47 @@ return (
 
             editor.commands.setLink({ href: text, target: '_blank' }) 
         }}
-        className={editor.isActive('link') ? 'is-active' : ''}>
+        className={`${editor.isActive('link') ? 'is-active' : ''} menu-button mx-1`}>
         <RiLink />
     </button>
     <button
         title="Unlink"
         onClick={() => editor.chain().focus().unsetLink().run()}
         disabled={!editor.isActive('link')}
+        className="menu-button mx-1"
     >
         <RiLinkUnlink />
     </button>
+
+    <button
+        title="Left text align"
+        onClick={() => editor.chain().focus().setTextAlign('left').run()}
+        className={`${editor.isActive({ textAlign: 'left' }) ? 'is-active' : ''} menu-button mx-1`}
+      >
+        <RiAlignLeft />
+      </button>
+      <button
+        title="Center text align"
+        onClick={() => editor.chain().focus().setTextAlign('center').run()}
+        className={`${editor.isActive({ textAlign: 'center' }) ? 'is-active' : ''} menu-button mx-1`}
+      >
+        <RiAlignCenter />
+      </button>
+      <button
+        title="Right text align"
+        onClick={() => editor.chain().focus().setTextAlign('right').run()}
+        className={`${editor.isActive({ textAlign: 'right' }) ? 'is-active' : ''} menu-button mx-1`}
+      >
+        <RiAlignRight />
+      </button>
+      <button
+        title="Justify text align"
+        onClick={() => editor.chain().focus().setTextAlign('justify').run()}
+        className={`${editor.isActive({ textAlign: 'justify' }) ? 'is-active' : ''} menu-button mx-1`}
+      >
+        <RiAlignJustify />
+      </button>
+
     <button
         title="Undo"
         onClick={() => editor.chain().focus().undo().run()}
