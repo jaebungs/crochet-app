@@ -2,6 +2,7 @@ import { Editor } from '@tiptap/react'
 import {
     RiBold,
     RiItalic,
+    RiUnderline,
     RiStrikethrough,
     RiMarkPenFill,
     RiFormatClear, 
@@ -67,6 +68,13 @@ return (
         className={`${editor.isActive('italic') ? 'is-active' : ''} menu-button mx-1`}
     >
         <RiItalic />
+    </button>
+    <button
+        title="Underline"
+        onClick={() => editor.chain().focus().toggleUnderline().run()}
+        className={`${editor.isActive('underline') ? 'is-active' : ''} menu-button mx-1`}
+      >
+        <RiUnderline />
     </button>
     <button
         title="Strikethrough"
