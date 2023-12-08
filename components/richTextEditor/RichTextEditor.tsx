@@ -4,6 +4,7 @@ import './richTextEditor.scss'
 import { Editor, EditorProvider, useCurrentEditor, useEditor, EditorContent } from '@tiptap/react'
 import ListItem from '@tiptap/extension-list-item'
 import TextStyle from '@tiptap/extension-text-style'
+import { Color } from '@tiptap/extension-color'
 import Underline from '@tiptap/extension-underline'
 import FontFamily from '@tiptap/extension-font-family'
 import Highlight from '@tiptap/extension-highlight'
@@ -32,6 +33,7 @@ const extensions = [
   Underline,
   ListItem,
   TextStyle,
+  Color,
   FontFamily,
   Highlight,
   Link,

@@ -4,7 +4,7 @@ import {
     RiItalic,
     RiUnderline,
     RiStrikethrough,
-    RiMarkPenFill,
+    RiMarkPenLine ,
     RiFormatClear, 
     RiEmotionLine,
     RiH1,
@@ -29,6 +29,7 @@ import {
     RiArrowGoBackLine,
     RiArrowGoForwardLine,
 } from 'react-icons/ri'
+import ColorSelector from './ColorSelector'
 
 type ManuBarProps = {
     editor: Editor | null
@@ -95,8 +96,9 @@ return (
         onClick={() => editor.chain().focus().toggleHighlight().run()}
         className={editor.isActive('highlight') ? 'is-active' : ''}
         >
-        <RiMarkPenFill />
+        <RiMarkPenLine />
     </button>
+    <ColorSelector editor={editor} className="flex menu-button mx-1" />
     <button 
         title="Clear format"
         onClick={() => editor.chain().focus().unsetAllMarks().run()}
