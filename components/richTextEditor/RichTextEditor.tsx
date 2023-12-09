@@ -73,14 +73,12 @@ display: none;
 </blockquote>
 `
 
-const RitchTextEditor = () => {
+const RichTextEditor = () => {
 
   const editor = useEditor({
     extensions: extensions,
     content: `${content}`,
   })
-
-  console.log(editor)
 
   return (
     <>
@@ -90,4 +88,4 @@ const RitchTextEditor = () => {
   )
 }
 
-export default RitchTextEditor
+export default RichTextEditor

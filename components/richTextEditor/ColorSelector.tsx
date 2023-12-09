@@ -1,7 +1,7 @@
 import React from 'react'
 import { Editor } from '@tiptap/react'
 import { RiPencilLine, RiPencilFill } from 'react-icons/ri'
-import colors from '../../styles/colors';
+// import colors from '../../styles/colors';
 
 export interface colorMenuItem {
     name: string
