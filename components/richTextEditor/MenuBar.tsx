@@ -42,6 +42,7 @@ const MenuBar = ({ editor }: ManuBarProps) => {
 
 return (
     <div className="editor-control-wrapper ">
+    {/* TODO - refactor buttons. Can use Factory or array of menu items. */}
     <button
         title="Bold"
         onClick={() => editor.chain().focus().toggleBold().run()}
