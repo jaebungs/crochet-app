@@ -1,7 +1,7 @@
 import RichTextEditor from '@/components/richTextEditor/RichTextEditor'
 
-export default function PostPage() {
+export default function NonEditablePage() {
     return (
-        <RichTextEditor editable={true} />
+        <RichTextEditor editable={false} />
     )
 }

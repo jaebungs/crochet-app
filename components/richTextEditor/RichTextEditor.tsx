@@ -28,6 +28,11 @@ import MenuBar from './MenuBar'
 //   }),
 // ]
 
+type RichTextEditorProps = {
+  content?: string
+  editable?: boolean
+}
+
 const extensions = [
   StarterKit,
   Underline,
@@ -42,7 +47,7 @@ const extensions = [
   })
 ]
 
-const content = `
+const testContent = `
 <h2>
   Hi there,
 </h2>
@@ -73,11 +78,14 @@ display: none;
 </blockquote>
 `
 
-const RichTextEditor = () => {
+const RichTextEditor = ({
+  content = testContent,
+  editable = true } : RichTextEditorProps) => {
 
   const editor = useEditor({
     extensions: extensions,
     content: `${content}`,
+    editable
   })
 
   return (
