@@ -88,10 +88,47 @@ const RichTextEditor = ({
     editable
   })
 
+  const handlePostSubmit = async () => {
+    const test = {
+      key: 'value1',
+      test: 'haha'
+    }
+    try { 
+      const crochetPostUrl = process.env.NEXT_PUBLIC_CROCHET_POST_URL ?? '';
+      const response = await fetch(crochetPostUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(test)
+      })
+      const data = await response.json()
+      console.log(data)
+    } catch (error) {
+      console.log(`POST Crochet project failed - ${error}`)
+    }
+  }
+  const handleTestSubmit = async () => {
+
+    try { 
+      const crochetPostUrl = process.env.NEXT_PUBLIC_CROCHET_GET_URL ?? '';
+      const response = await fetch(crochetPostUrl)
+      const data = await response.json()
+      console.log(data)
+    } catch (error) {
+      console.log(`GET Crochet project failed - ${error}`)
+    }
+  }                                                                   
   return (
     <>
       <MenuBar editor={editor} />
       <EditorContent editor={editor} />
+      <button onClick={handlePostSubmit}>
+        Post
+      </button>
+      <button onClick={handleTestSubmit}>
+        TEST
+      </button>
     </>
   )
 }
